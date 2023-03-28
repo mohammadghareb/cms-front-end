@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import getPersonalStore from "../Stores/personal-store";
 import getUIStore from "../Stores/ui-store";
-
-const Header = ((props) => {
+import { withObserverAndTheme } from "../../Helpers/strengthen-render";
+const Header = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
   const isVisible = getUIStore().isHeaderVisible.get();
@@ -46,7 +46,7 @@ const Header = ((props) => {
       </a>
       <div
         className="clickable"
-        onClick={() => getCoreUIStore().toggleProfileDropdown()}
+        onClick={() => getUIStore().toggleProfileDropdown()}
         style={{
           color: colors.all.white,
           padding: "0 6px",

@@ -5,7 +5,12 @@ class UIStore {
  
   isHeaderVisible = observable.box<boolean>(false);
   isSideBarVisible = observable.box<boolean>(false);
- 
+  isProfileDropdownVisible = observable.box<boolean>(false);
+
+  toggleProfileDropdown = () => {
+    const status = this.isProfileDropdownVisible.get();
+    this.isProfileDropdownVisible.set(!status);
+  };
  
   toggleSideBar = () => {
     const status = this.isSideBarVisible.get();

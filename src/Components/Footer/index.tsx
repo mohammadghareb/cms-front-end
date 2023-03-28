@@ -1,6 +1,7 @@
 import configuration from "../../Configuration/keys";
+import { withObserverAndTheme } from "../../Helpers/strengthen-render";
 
-const Footer = ((props) => {
+const Footer = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
 
