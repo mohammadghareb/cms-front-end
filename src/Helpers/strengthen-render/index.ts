@@ -1,4 +1,4 @@
-import { observer  } from "mobx-react-lite";
+import { observer as LiteObserver } from "mobx-react-lite";
 import { ComponentType } from "react";
 import { withTheme } from "../theme";
 import { Theme } from "../theme/getTheme";
@@ -21,5 +21,6 @@ type WithThemeAndObserver = <T extends {}>(
 ) => ComponentType<T & { theme?: Theme }>;
 
 export const withObserverAndTheme = ((component) => {
-  return compose(withTheme, observer)(component);
+  return compose(withTheme, LiteObserver)(component);
 }) as WithThemeAndObserver;
+ 

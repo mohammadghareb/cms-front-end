@@ -7,18 +7,30 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
  
 import UnderConstruction from "./Components/UnderConstruction";
-  
+import { createBrowserHistory } from "history";
+import { useEffect } from "react";
+import getHistoryStore from "./Components/Stores/history-store";
+
  
 const App = (() => {
   if (configuration.IS_UNDER_CONSTRUCTION) {
     return <UnderConstruction></UnderConstruction>;
   }
 
-   
+  const history = createBrowserHistory();
+  getHistoryStore().history.set(history);
+  getHistoryStore().startApp();
+  // useEffect(() => {
+  //   getHistoryStore().history.set(history);
+  // //  getRootStore().startApp();
+ 
+  // }, [history]);
 
   return (
+
     <div style={{ flex: 1, height: "100vh" }}>
-      <Router history={history}>
+ 
+      <Router basename="" location={""} navigator={history}>
         <Header />
      
         <div

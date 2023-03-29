@@ -1,12 +1,21 @@
 import React from "react";
 
 import { withObserverAndTheme } from "../../Helpers/strengthen-render";
-
+import Margin from "../../Helpers/ui-components/Margin";
+import getHistoryStore from "../../Components/Stores/history-store";
+import ReactLink from "./ReactLink";
+import SignInError from "./IncorrectPasswordAlert";
+import PasswordFormItem from "./PasswordFormItem";
+import SignInButton from "./SignInButton";
+import UsernameFormItem from "./UsernameFormItem";
+import Welcome from "./Welcome";
 
 const Login = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
-
+  React.useEffect(() => {
+    getHistoryStore().setPageName("LOGIN");
+  }, []);
   const showLoginPage = localStorage.getItem("user") === null;
 
   return showLoginPage ? (
@@ -21,7 +30,15 @@ const Login = withObserverAndTheme((props) => {
         flexDirection: "column"
       }}
     >
-   
+      <ReactLink />
+      <Margin top={20} />
+      <UsernameFormItem />
+      <Margin top={10} />
+      <PasswordFormItem />
+      <Margin top={10} />
+      <SignInError />
+      <Margin top={10} />
+      <SignInButton />
     </div>
   ) : (
     <div
@@ -35,6 +52,7 @@ const Login = withObserverAndTheme((props) => {
         flexDirection: "column"
       }}
     >
+      <Welcome />
     </div>
   );
 });

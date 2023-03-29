@@ -1,10 +1,10 @@
 
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import getPersonalStore from "../Stores/personal-store";
 import getUIStore from "../Stores/ui-store";
 import { withObserverAndTheme } from "../../Helpers/strengthen-render";
+ 
 const Header = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
@@ -57,7 +57,7 @@ const Header = withObserverAndTheme((props) => {
         }}
       >
         <img
-          src={require(`../Assets/Images/${userImageName}.png`).default}
+          src={require(`../../Assets/Images/${userImageName}.png`).default}
           alt={"ADMIN"}
           style={{
             height: 45,
