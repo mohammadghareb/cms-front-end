@@ -1,5 +1,6 @@
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { withObserverAndTheme } from "../../Helpers/strengthen-render";
 import getLoginStore from "../../Components/Stores/login-store";
@@ -7,6 +8,8 @@ import getLoginStore from "../../Components/Stores/login-store";
 const PasswordFormItem = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
+  const faIcon = faLock as IconProp;
+
   return (
     <div
       className="input-focus"
@@ -31,7 +34,7 @@ const PasswordFormItem = withObserverAndTheme((props) => {
           width: "35vh"
         }}
       />
-      <FontAwesomeIcon icon={faLock} color={colors.all.darkGray} />
+      <FontAwesomeIcon icon={faIcon} color={colors.all.darkGray} />
     </div>
   );
 });

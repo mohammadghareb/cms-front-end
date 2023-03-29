@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import getPersonalStore from "../Stores/personal-store";
 import getUIStore from "../Stores/ui-store";
 import { withObserverAndTheme } from "../../Helpers/strengthen-render";
- 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 const Header = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
@@ -12,6 +13,8 @@ const Header = withObserverAndTheme((props) => {
   const user = getPersonalStore().user.get();
   const name = user.username;
   const userImageName = getPersonalStore().userPofilePic.get()
+  const faIcon = faBars as IconProp;
+
   return isVisible ? (
     <div
       style={{
@@ -27,7 +30,7 @@ const Header = withObserverAndTheme((props) => {
       <FontAwesomeIcon
         className="clickable"
         onClick={() => getUIStore().toggleSideBar()}
-        icon={faBars}
+        icon={faIcon}
         color={colors.all.white}
         style={{ padding: "16px 12px" }}
         size="1x"

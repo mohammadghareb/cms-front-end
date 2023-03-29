@@ -1,11 +1,12 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { withObserverAndTheme } from "../../Helpers/strengthen-render";
 import getLoginStore from "../../Components/Stores/login-store";
 const UsernameFormItem = withObserverAndTheme((props) => {
   const { theme } = props;
   const { colors } = theme;
+  const faIcon = faUser as IconProp;
   return (
     <div
       className="input-focus"
@@ -31,7 +32,7 @@ const UsernameFormItem = withObserverAndTheme((props) => {
           width: "35vh"
         }}
       />
-      <FontAwesomeIcon icon={faUser} color={colors.all.darkGray} />
+      <FontAwesomeIcon icon={faIcon} color={colors.all.darkGray} />
     </div>
   );
 });
